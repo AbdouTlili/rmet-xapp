@@ -15,6 +15,14 @@ run: 			## run the xApp
 	./build/out/rmet-xapp
 
 
+rmet-docker:
+	docker build . -t abdoutlili/rmet:latest
+
+
+images: build rmet-docker
+
+
+
 clean: 			## clean the build dir
 	rm -fr build/*
 
