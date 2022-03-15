@@ -12,12 +12,14 @@ run: 			## run the xApp
 	./build/out/rmet-xapp
 
 rmet-docker:
-	docker build . -f ./Dockerfile -t abdoutlili/rmet:latest 
-
-
+	docker build . -f ./Dockerfile -t abdoutlili/rmet-xapp:latest 
 
 images: build rmet-docker
 
+push-images:
+	docker push abdoutlili/rmet-xapp:latest
+	
+publish: build images push-images
 
 clean: 			## clean the build dir
 	rm -fr build/*
