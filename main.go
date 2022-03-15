@@ -5,9 +5,11 @@ import (
 	"fmt"
 
 	"github.com/AbdouTlili/rmet-xapp/pkg/manager"
-	"github.com/labstack/gommon/log"
 	"github.com/onosproject/onos-lib-go/pkg/certs"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 )
+
+var log = logging.GetLogger()
 
 func main() {
 	caPath := flag.String("caPath", "", "path to CA certificate")

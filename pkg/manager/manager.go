@@ -1,4 +1,4 @@
-package main
+package manager
 
 import (
 	"fmt"
@@ -23,9 +23,18 @@ type Config struct {
 
 func NewManager(config Config) error {
 	fmt.Printf("%#v", config)
+	log.Debugf("%#v", config)
 	return nil
 }
 
-func Run() {
+func (m Manager) Run() {
 
+}
+
+// Manager is an abstract struct for manager
+type Manager struct {
+	appConfig        Config
+	config           Config
+	measurementStore string
+	subManager       string
 }
