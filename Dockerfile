@@ -9,6 +9,7 @@ COPY main.go /go/src/github.com/AbdouTlili/rmet-xapp/
 
 RUN cd /go/src/github.com/AbdouTlili/rmet-xapp/ && make ${MAKE_TARGET}
 
+
 ## build stage two 
 
 FROM gcr.io/distroless/base-debian10
