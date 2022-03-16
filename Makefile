@@ -12,7 +12,9 @@ run: 			## run the xApp
 	./build/out/rmet-xapp
 
 rmet-docker:
+	@go mod vendor
 	docker build . -f ./Dockerfile -t abdoutlili/rmet-xapp:latest 
+	@rm -rf vendor
 
 images: build rmet-docker
 
@@ -23,6 +25,8 @@ publish: build images push-images
 
 clean: 			## clean the build dir
 	rm -fr build/*
+	rm -rf vendor
+
 
 
 help:           ## Help page for rmet-xapp Makefile.

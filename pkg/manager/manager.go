@@ -1,8 +1,6 @@
 package manager
 
 import (
-	"fmt"
-
 	"github.com/onosproject/onos-lib-go/pkg/logging"
 )
 
@@ -21,14 +19,19 @@ type Config struct {
 	SMVersion   string
 }
 
-func NewManager(config Config) error {
-	fmt.Printf("%#v", config)
-	log.Debugf("%#v", config)
-	return nil
+func NewManager(config Config) *Manager {
+	//fmt.Printf("%#v", config)
+	log.Infof("%#v", config)
+	return &Manager{
+		appConfig:        config,
+		config:           config,
+		measurementStore: "string",
+		subManager:       "store",
+	}
 }
 
-func (m Manager) Run() {
-
+func (m Manager) Run() error {
+	return nil
 }
 
 // Manager is an abstract struct for manager

@@ -19,8 +19,8 @@ func main() {
 	ricActionID := flag.Int("ricActionID", 10, "RIC Action ID in E2 message")
 	configPath := flag.String("configPath", "/etc/onos/config/config.json", "path to config.json file")
 	grpcPort := flag.Int("grpcPort", 5150, "grpc Port number")
-	smName := flag.String("smName", "oran-e2sm-kpm", "Service model name in RAN function description")
-	smVersion := flag.String("smVersion", "v2", "Service model version in RAN function description")
+	smName := flag.String("smName", "e2sm-rmet", "Service model name in RAN function description")
+	smVersion := flag.String("smVersion", "v1", "Service model version in RAN function description")
 
 	ready := make(chan bool)
 
