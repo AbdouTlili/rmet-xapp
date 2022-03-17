@@ -85,7 +85,7 @@ message MeasurementTypeId {
 // {SubscriptionID}
 message SubscriptionId {
     // @inject_tag: aper:"valueLB:1,valueUB:4294967295"
-    int32 value = 1 [(validate.v1.rules).int32 = {gte: 1, lte: 4294967296}, json_name="value"];
+    int64 value = 1 [(validate.v1.rules).int64 = {gte: 1, lte: 4294967295}, json_name = "value"];
 };
 
 // sequence from e2sm-rmet-v1.00.asn1:77
@@ -127,14 +127,14 @@ message GlobalgNbId {
 // {GNB-CU-UP-ID}
 message GnbCuUpId {
     // @inject_tag: aper:"valueLB:0,valueUB:68719476735"
-    int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 68719476735}, json_name="value"];
+    int64 value = 1 [(validate.v1.rules).int64 = {gte: 0, lte: 68719476735}, json_name = "value"];
 };
 
 // range of Integer from e2sm-rmet-v1.00.asn1:99
 // {GNB-DU-ID}
 message GnbDuId {
     // @inject_tag: aper:"valueLB:0,valueUB:68719476735"
-    int32 value = 1 [(validate.v1.rules).int32 = {gte: 0, lte: 68719476735}, json_name="value"];
+    int64 value = 1 [(validate.v1.rules).int64 = {gte: 0, lte: 68719476735}, json_name = "value"];
 };
 
 // sequence from e2sm-rmet-v1.00.asn1:102
@@ -466,7 +466,7 @@ message IndicationMessageFormats {
 message E2SmRmetIndicationMessageFormat1 {
     SubscriptionId subscript_id = 1 [ json_name="subscriptID"];
     // @inject_tag: aper:"optional"
-    optional CellObjectId cell_obj_id = 2 [ qjson_name="cellObjID"];
+    optional CellObjectId cell_obj_id = 2 [ json_name="cellObjID"];
     // @inject_tag: aper:"optional"
     optional GranularityPeriod granul_period = 3 [ json_name="granulPeriod"];
     // @inject_tag: aper:"optional"
