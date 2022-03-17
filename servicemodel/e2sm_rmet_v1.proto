@@ -4,8 +4,8 @@
 
 syntax = "proto3";
 
-package e2sm_rmet_v1_00_asn1.v1;
-option go_package = "e2sm_rmet_v1_00_asn1/v1/e2sm-rmet-ies";
+package e2sm_rmet_v1_go.v1;
+option go_package = "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rmet_v1_go/v1/e2sm-rmet-v1-go";
 
 import "validate/v1/validate.proto";
 import "asn1/v1/asn1.proto";
