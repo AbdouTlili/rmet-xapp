@@ -31,7 +31,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Info("Starting onos-kpimon")
+	log.Info("Starting RMET xApp")
 	cfg := manager.Config{
 		CAPath:      *caPath,
 		KeyPath:     *keyPath,
@@ -47,6 +47,7 @@ func main() {
 	fmt.Println("rmet started !")
 
 	mgr := manager.NewManager(cfg)
+	log.Info("New manager created")
 	mgr.Run()
 	<-ready
 }

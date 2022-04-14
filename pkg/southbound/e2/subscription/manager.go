@@ -7,6 +7,7 @@ package subscription
 import (
 	"context"
 	"fmt"
+	"time"
 
 	// "github.com/onosproject/onos-kpimon/pkg/monitoring"
 	// "github.com/onosproject/onos-kpimon/pkg/store/actions"
@@ -20,8 +21,8 @@ import (
 
 	// subutils "github.com/onosproject/onos-kpimon/pkg/utils/subscription"
 
+	"github.com/AbdouTlili/rmet-xapp/pkg/rnib"
 	topoapi "github.com/onosproject/onos-api/go/onos/topo"
-	"github.com/onosproject/onos-kpimon/pkg/rnib"
 	"github.com/onosproject/onos-lib-go/pkg/logging"
 	e2client "github.com/onosproject/onos-ric-sdk-go/pkg/e2/v1beta1"
 )
@@ -87,6 +88,13 @@ func NewManager(opts ...Option) (Manager, error) {
 
 // Start starts subscription manager
 func (m *Manager) Start() error {
+	log.Info("sub manager started")
+	go func() {
+		for {
+			log.Info("ping")
+			time.Sleep(time.Second * 2)
+		}
+	}()
 	go func() {
 		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()

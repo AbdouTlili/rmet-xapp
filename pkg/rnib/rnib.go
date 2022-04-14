@@ -51,9 +51,10 @@ func (c *Client) HasKPMRanFunction(ctx context.Context, nodeID topoapi.ID, oid s
 	}
 
 	for _, sm := range e2Node.GetServiceModels() {
-		if sm.OID == oid {
-			return true
-		}
+		log.Warn("the sm ID is : ", sm.OID)
+		// if sm.OID == oid {
+		// 	return true
+		// }
 	}
 	return false
 }
@@ -196,6 +197,7 @@ func getControlRelationFilter() *topoapi.Filters {
 // WatchE2Connections watch e2 node connection changes
 func (c *Client) WatchE2Connections(ctx context.Context, ch chan topoapi.Event) error {
 	err := c.client.Watch(ctx, ch, toposdk.WithWatchFilters(getControlRelationFilter()))
+	log.Info("watching topo")
 	if err != nil {
 		return err
 	}

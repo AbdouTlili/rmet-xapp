@@ -38,7 +38,7 @@ func NewManager(config Config) *Manager {
 		subscription.WithServiceModel(subscription.ServiceModelName(config.SMName),
 			subscription.ServiceModelVersion(config.SMVersion)),
 		subscription.WithAppConfig(appCfg),
-		subscription.WithAppID("onos-kpimon"),
+		subscription.WithAppID("rmet-xapp"),
 		// subscription.WithBroker(subscriptionBroker),
 		// subscription.WithActionStore(actionsStore),
 		// subscription.WithMeasurementStore(measStore)
@@ -54,6 +54,7 @@ func NewManager(config Config) *Manager {
 		subManager: subManager,
 		// measurementStore: measStore,
 	}
+	log.Info("manager created")
 	return manager
 }
 
@@ -71,6 +72,7 @@ func (m *Manager) Run() {
 	if err != nil {
 		log.Errorf("Error when starting KPIMON: %v", err)
 	}
+
 }
 
 // Close closes manager
@@ -79,12 +81,13 @@ func (m *Manager) Close() {
 }
 
 func (m *Manager) start() error {
+	log.Info("ignoring startNorthboundServer()")
 	// err := m.startNorthboundServer()
 	// if err != nil {
 	// 	log.Warn(err)
 	// 	return err
 	// }
-
+	log.Info("starting the southbound connection manager")
 	err := m.subManager.Start()
 	if err != nil {
 		log.Warn(err)
